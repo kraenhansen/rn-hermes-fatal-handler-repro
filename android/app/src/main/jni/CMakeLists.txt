@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.13)
+project(appmodules)
+include(${REACT_ANDROID_DIR}/cmake-utils/ReactNative-application.cmake)
+find_package(hermes-engine REQUIRED CONFIG)
+add_library(fatalrepro SHARED repro/repro.cpp)
+target_link_libraries(fatalrepro PRIVATE log ReactAndroid::jsi hermes-engine::hermesvm)
