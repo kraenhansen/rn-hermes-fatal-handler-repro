@@ -20,7 +20,7 @@ adb install -r -t android/app/build/outputs/apk/release/app-release.apk
 
 adb logcat -c
 adb shell am start -n com.fatalrepro/.MainActivity --es mode default
-sleep 12
+sleep 20 # the first launch after install is slower
 adb logcat -d | grep -E ' Repro|HermesGC: OOM|Fatal signal|Abort message|Cause:'
 ```
 
